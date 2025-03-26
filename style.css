@@ -64,51 +64,55 @@ header {
     flex-direction: column; /* Stack items vertically by default */
     align-items: center;
     text-align: center;
+    margin-bottom: 2rem; /* Add space below the hero section */
+    gap: 2rem; /* Add space between .content and .profile-card */
 }
 
 @media (min-width: 769px) {
     .hero {
         flex-direction: row; /* Side-by-side layout for larger screens */
         text-align: left;
+        gap: 3rem; /* Add more space between .content and .profile-card for larger screens */
     }
 }
 
 .profile-card {
     position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 20px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
+    width: 300px; /* Fixed width for the card */
+    height: 300px; /* Fixed height to match width */
+    border-radius: 15px; /* Slight rounding for square corners */
+    background: var(--glass); /* Glass effect for the card */
+    backdrop-filter: blur(10px); /* Blur effect for the background */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
-    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.2); /* Subtle shadow */
+    overflow: hidden; /* Ensure content stays within the card */
+    margin: 0 auto; /* Center the profile card */
+    display: flex; /* Center content inside */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .profile-card::before {
     content: '';
     position: absolute;
+    top: -25%;
+    left: -25%;
     width: 150%;
     height: 150%;
-    background: conic-gradient(
-        var(--neon-cyan),
-        var(--neon-pink),
-        var(--neon-cyan)
-    );
-    animation: rotate 4s linear infinite;
+    background: conic-gradient(var(--neon-cyan), var(--neon-pink), var(--neon-cyan));
+    animation: rotate 4s linear infinite; /* Rotating glowing effect */
+    z-index: 0; /* Place it behind the image */
+    filter: blur(20px); /* Add blur for glowing effect */
+    border-radius: 15px; /* Match the square corners of the card */
 }
 
 .profile-card img {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    width: 96%;
-    height: 96%;
-    object-fit: cover;
-    border-radius: 18px;
-    z-index: 1;
-    max-width: 100%; /* Ensure the image doesn't overflow */
-    height: auto; /* Maintain aspect ratio */
+    position: relative;
+    width: 85%; /* Make the image smaller than the card */
+    height: 85%; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image fits perfectly */
+    border-radius: 15px; /* Match the square corners of the card */
+    z-index: 1; /* Ensure the image is above the glowing background */
 }
 
 .content {
@@ -234,8 +238,8 @@ header {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible grid */
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    gap: 1.5rem; /* Add spacing between the cards */
 }
 
 @media (max-width: 768px) {
