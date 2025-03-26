@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Typed.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-title">MyPortfolio</h1>
+        </header>
+
+        <section class="hero">
+            <div class="content">
+                <h2>Innovative Digital Solutions</h2>
+                <p style="margin: 1.5rem 0; line-height: 1.6;">
+                    Creating immersive digital experiences that blend cutting-edge technology 
+                    with artistic vision. Specializing in web development, IoT solutions,
+                    data visualization, 
+                    and interactive design.
+                </p>
+                <a href="#projects" class="neon-button">Explore Projects →</a>
+            </div>
+
+            <div class="profile-card">
+                <img src="mmm.jfif" alt="Profile">
+            </div>
+        </section>
+
+        <section class="typed-section">
+            <h2>Hi, I'm <span id="typed"></span></h2>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-icon">🐝</div>
+                    <h3>Smart Beekeeping System</h3>
+                    <p>An IoT-based system to monitor beehive health and productivity.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">⚡</div>
+                    <h3>Real-time Energy Monitoring System</h3>
+                    <p>A dashboard to track and optimize energy consumption in real-time.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <h3>Student Performance System</h3>
+                    <p>A platform to analyze and predict student academic performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">HTML & CSS</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">React.js</div>
+                <div class="skill-card">Node.js</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">IoT Development</div>
+                <div class="skill-card">Data Visualization</div>
+                <div class="skill-card">UI/UX Design</div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <form class="contact-form" action="https://formspree.io/f/mnnpzwpr" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // Typed.js Initialization
+        document.addEventListener("DOMContentLoaded", function() {
+            var typed = new Typed('#typed', {
+                strings: ["Gerald", "A Web Developer", "A Designer"],
+                typeSpeed: 100,
+                backSpeed: 50,
+                loop: true
+            });
+        });
+
+        // Add scroll animation for sections
+        const sections = document.querySelectorAll("section");
+        const options = {
+            threshold: 0.2,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = "translateY(20px)";
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
